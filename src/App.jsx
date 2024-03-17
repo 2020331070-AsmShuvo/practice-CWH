@@ -24,11 +24,11 @@ function App() {
         }
     }
     return (
-        <>
+        <div className="container mx-auto">
             <Navbar modeText={modeText} mode={mode} toggleMode={toggleMode} title="Nevubar" ></Navbar>
-            <TextForm heading="Enter the text to analyze"></TextForm>
+            <TextForm heading="Enter the text to analyze" mode={mode}></TextForm>
             <About></About>
-        </>
+        </div>
   );
 }
 

@@ -36,12 +36,14 @@ const TextForm = (props) => {
 
   const [text, setText] = useState("");
 
+
+
   return (
     <div className="text-center space-y-2">
       <h1>{props.heading}</h1>
       <div>
         <textarea
-          className="textarea textarea-primary w-96 h-56"
+          className={`textarea textarea-primary w-[800px] h-56 ${props.mode == 'white'?'text-black':'text-white'} ${props.mode=='white'?"bg-white":"bg-blue-700"}`}
           placeholder="Text here"
           value={text}
           onChange={handleOnChange}
