@@ -5,6 +5,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import TextForm from "./Components/TextForm";
 import About from "./Components/About";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 function App() {
     const [mode, setMode] = useState('white');
@@ -14,13 +16,29 @@ function App() {
         if(mode==='black'){
             setMode('white');
             setModeText('Dark-Mode');
-            document.body.style.backgroundColor = '#FFF'
+            document.body.style.backgroundColor = '#FFF';
+            document.title = 'Light Mode Enabled';
+
+            setInterval(() => {
+                document.title = 'Download React'
+            }, 2000);
+            setInterval(() => {
+                document.title = 'Work smart'
+            }, 1500);
         }
         else{
             setMode('black');
             setModeText('Light-Mode');
-            
+            document.title = 'Dark Mode Enabled';
             document.body.style.backgroundColor = '#09091D'
+
+            
+            setInterval(() => {
+                document.title = 'Download React'
+            }, 2000);
+            setInterval(() => {
+                document.title = 'Work smart'
+            }, 1500);
         }
     }
     return (

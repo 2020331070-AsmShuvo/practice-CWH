@@ -76,8 +76,7 @@ const TextForm = (props) => {
         </button>
       </div>
 
-      <h3>
-        {" "}
+      <h3 className="text-gray-500">
         {cnt_Text(text)} words {text.length} charancters
       </h3>
     </div>
