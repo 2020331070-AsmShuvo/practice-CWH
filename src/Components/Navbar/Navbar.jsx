@@ -1,9 +1,15 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 const Navbar = (props) => {
+  let textColor = "black";
+  if (props.mode == "black") {
+    textColor = "white";
+  }
   return (
     <div className="p-4">
-      <div className="navbar bg-base-100 border rounded-lg bottom-6 ">
+      <div
+        className={`navbar bg-${props.mode} text-${textColor} border rounded-lg bottom-6`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,7 +38,7 @@ const Navbar = (props) => {
               <li>
                 <a>Products</a>
               </li>
-              
+
               <li>
                 <a>Contact</a>
               </li>
@@ -42,20 +48,25 @@ const Navbar = (props) => {
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-          <li>
-                <a>Home</a>
-              </li>
-              <li>
-                <a>Products</a>
-              </li>
-              
-              <li>
-                <a>Contact</a>
-              </li>
+            <li>
+              <a>Home</a>
+            </li>
+            <li>
+              <a>Products</a>
+            </li>
+
+            <li>
+              <a>Contact</a>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-primary">Button</a>
+          <div className="form-control">
+            <label className="label cursor-pointer">
+              <span className={`label-text text-${textColor} mr-2`}>{props.modeText}</span>
+              <input onClick={props.toggleMode} type="checkbox" className="toggle"  />
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -64,10 +75,9 @@ const Navbar = (props) => {
 
 export default Navbar;
 
-Navbar.propTypes  = {
-   title :  PropTypes.string.isRequired,
-   
-}
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 Navbar.defaultProps = {
-    title : 'Set title here',
-}
+  title: "Set title here",
+};
